@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="my" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>အာရဗီကိန်းဂဏန်း သင်ခန်းစာ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Myanmar:wght@400;700&family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --deep: #1A0A2E;
+    --mid: #2D1654;
+    --surface: #3A1F6B;
+    --text: #F5ECD7;
+    --text-soft: #C9B99A;
+    --arabic-green: #2ECC71;
+    --arabic-blue: #5DADE2;
+    --arabic-red: #E74C3C;
+    --arabic-orange: #F39C12;
+    --card-bg: rgba(58, 31, 107, 0.6);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--deep);
+    color: var(--text);
+    font-family: 'Noto Serif Myanmar', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Decorative background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 20% 20%, rgba(201,168,76,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(93,173,226,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(45,22,84,0.9) 0%, var(--deep) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  .hero {
+    text-align: center;
+    padding: 50px 20px 40px;
+    position: relative;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--deep);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: 6px 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-size: clamp(26px, 5vw, 42px);
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .hero-arabic {
+    font-family: 'Scheherazade New', serif;
+    font-size: clamp(28px, 6vw, 52px);
+    color: var(--gold);
+    direction: rtl;
+    margin: 10px 0;
+    text-shadow: 0 0 30px rgba(201,168,76,0.4);
+  }
+
+  .hero p {
+    color: var(--text-soft);
+    font-size: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  /* Navigation tabs */
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin: 30px 0 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tab-btn {
+    background: var(--card-bg);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--text-soft);
+    padding: 10px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Noto Serif Myanmar', serif;
+    font-size: 13px;
+    transition: all 0.3s;
+  }
+
+  .tab-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .tab-btn.active {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--deep);
+    border-color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* Sections */
+  .section {
+    display: none;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .section.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Cards */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+  }
+
+  .card-title {
+    color: var(--gold);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .card-title .icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--deep);
+    flex-shrink: 0;
+  }
+
+  /* Rule boxes */
+  .rule-box {
+    background: rgba(201,168,76,0.08);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+
+  .rule-title {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .rule-content {
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  /* Arabic text display */
+  .arabic-big {
+    font-family: 'Scheherazade New', serif;
+    font-size: clamp(28px, 5vw, 42px);
+    direction: rtl;
+    text-align: center;
+    color: var(--gold);
+    padding: 16px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 12px;
+    margin: 12px 0;
+    text-shadow: 0 0 20px rgba(201,168,76,0.3);
+  }
+
+  .arabic-inline {
+    font-family: 'Scheherazade New', serif;
+    font-size: 22px;
+    color: var(--gold);
+    direction: rtl;
+    display: inline;
+  }
+
+  /* Number table */
+  .num-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  .num-table th {
+    background: rgba(201,168,76,0.2);
+    color: var(--gold);
+    padding: 12px 14px;
+    text-align: center;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    font-size: 13px;
+  }
+
+  .num-table td {
+    padding: 12px 14px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    vertical-align: middle;
+    line-height: 1.7;
+  }
+
+  .num-table tr:hover td {
+    background: rgba(201,168,76,0.05);
+  }
+
+  .num-table .ar {
+    font-family: 'Scheherazade New', serif;
+    font-size: 22px;
+    direction: rtl;
+    color: var(--arabic-blue);
+  }
+
+  .num-table .ar-green { color: var(--arabic-green); }
+  .num-table .ar-red { color: var(--arabic-red); }
+  .num-table .ar-orange { color: var(--arabic-orange); }
+
+  /* Example sentence */
+  .example-block {
+    background: rgba(0,0,0,0.25);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin: 14px 0;
+  }
+
+  .example-ar {
+    font-family: 'Scheherazade New', serif;
+    font-size: clamp(22px, 4vw, 32px);
+    direction: rtl;
+    text-align: right;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.8;
+  }
+
+  .example-transliteration {
+    color: var(--text-soft);
+    font-size: 13px;
+    text-align: right;
+    margin-bottom: 6px;
+    direction: rtl;
+    font-style: italic;
+  }
+
+  .example-my {
+    color: var(--arabic-green);
+    font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 8px;
+    margin-top: 8px;
+  }
+
+  /* Color coded */
+  .clr-num { color: var(--arabic-red); font-family: 'Scheherazade New', serif; font-size: 1.2em; }
+  .clr-noun { color: var(--arabic-blue); font-family: 'Scheherazade New', serif; font-size: 1.2em; }
+  .clr-adj { color: var(--arabic-green); font-family: 'Scheherazade New', serif; font-size: 1.2em; }
+
+  /* Label legend */
+  .legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-soft);
+  }
+
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  /* Tip box */
+  .tip-box {
+    background: rgba(46, 204, 113, 0.08);
+    border: 1px solid rgba(46,204,113,0.25);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.8;
+  }
+
+  .tip-box::before {
+    content: '💡 ';
+  }
+
+  .warning-box {
+    background: rgba(231,76,60,0.08);
+    border: 1px solid rgba(231,76,60,0.25);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.8;
+  }
+
+  .warning-box::before {
+    content: '⚠️ ';
+  }
+
+  /* Quiz */
+  .quiz-q {
+    background: rgba(0,0,0,0.2);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+
+  .quiz-q .q-text {
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 16px;
+    line-height: 1.8;
+  }
+
+  .quiz-q .ar-q {
+    font-family: 'Scheherazade New', serif;
+    font-size: 26px;
+    direction: rtl;
+    color: var(--gold);
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .opt-btn {
+    background: var(--surface);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--text);
+    padding: 12px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Noto Serif Myanmar', serif;
+    font-size: 13px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+
+  .opt-btn:hover { border-color: var(--gold); background: rgba(201,168,76,0.1); }
+  .opt-btn.correct { background: rgba(46,204,113,0.2); border-color: var(--arabic-green); color: var(--arabic-green); }
+  .opt-btn.wrong { background: rgba(231,76,60,0.15); border-color: var(--arabic-red); color: var(--arabic-red); }
+
+  .feedback {
+    margin-top: 12px;
+    font-size: 14px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    display: none;
+    line-height: 1.8;
+  }
+
+  .feedback.show { display: block; }
+  .feedback.ok { background: rgba(46,204,113,0.1); color: var(--arabic-green); }
+  .feedback.no { background: rgba(231,76,60,0.1); color: var(--arabic-red); }
+
+  /* Progress */
+  .progress-bar-wrap {
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    height: 6px;
+    margin: 10px 0 30px;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius: 10px;
+    transition: width 0.5s ease;
+  }
+
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-soft);
+    margin-bottom: 4px;
+  }
+
+  /* Summary score */
+  .score-display {
+    text-align: center;
+    padding: 24px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    margin-top: 20px;
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .score-num {
+    font-size: 52px;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* step numbers */
+  .step-num {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--deep);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+
+  p, li { line-height: 1.9; font-size: 14px; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 6px; }
+
+  h3 { color: var(--gold-light); margin: 16px 0 8px; font-size: 16px; }
+
+  .divider {
+    border: none;
+    border-top: 1px solid rgba(201,168,76,0.1);
+    margin: 20px 0;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .two-col { grid-template-columns: 1fr; }
+    .options { grid-template-columns: 1fr; }
+  }
+
+  .highlight {
+    background: rgba(201,168,76,0.15);
+    border-radius: 4px;
+    padding: 2px 6px;
+    color: var(--gold-light);
+  }
+
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-soft);
+    font-size: 12px;
+    border-top: 1px solid rgba(201,168,76,0.1);
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">မြန်မာဘာသာ • သင်ခန်းစာ</div>
+    <h1>အာရဗီကိန်းဂဏန်းများ</h1>
+    <div class="hero-arabic">الأعداد العربية</div>
+    <p>عدد (ကိန်းဂဏန်း) နှင့် معدود (ရေတွက်ခံပစ္စည်း) ကို ကျွမ်းကျင်လာစေရန် တဆင့်ချင်း လေ့လာကြရအောင်</p>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('intro')">📖 မိတ်ဆက်</button>
+    <button class="tab-btn" onclick="showTab('rules1')">1️⃣ ကိန်း ၁–၂</button>
+    <button class="tab-btn" onclick="showTab('rules2')">🔢 ကိန်း ၃–၁၀</button>
+    <button class="tab-btn" onclick="showTab('rules3')">💯 ကိန်း ၁၁–</button>
+    <button class="tab-btn" onclick="showTab('examples')">✍️ ဥပမာများ</button>
+    <button class="tab-btn" onclick="showTab('quiz')">🧪 လေ့ကျင့်ခန်း</button>
+  </div>
+
+  <!-- SECTION: INTRO -->
+  <div class="section active" id="intro">
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🌙</span> ဘာကြောင့် ဒါက ခက်တာလဲ?</div>
+      <p>အာရဗီဘာသာတွင် ကိန်းဂဏန်းများသည် ရေတွက်ခံပစ္စည်း (معدود) ၏ <strong>ကျားမ</strong>နှင့် <strong>ပမာဏ</strong>ပေါ် မူတည်၍ မတူညီသောပုံစံများ ရှိပါသည်။ ဤသည်မှာ အာရဗီဘာသာရပ်တွင် အနုပညာဆန်ဆုံးသော အပိုင်းတစ်ခုဖြစ်ပါသည်။</p>
+      <div class="tip-box">အဓိကကျသောသဘောတရားနှစ်ခုကိုသာ မှတ်ထားပါ — <strong class="highlight">عدد</strong> (ကိန်းဂဏန်း) နှင့် <strong class="highlight">معدود</strong> (ရေတွက်ခံပစ္စည်း)။ ဤနှစ်ခုကို ချိတ်ဆက်ပုံသည် အလွန်ရိုးရှင်းသော ယုတ္တိဗေဒပေါ်တွင် တည်ဆောက်ထားပါသည်။</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">📚</span> အဓိကအသုံးအနှုန်းများ</div>
+
+      <div class="two-col">
+        <div class="rule-box">
+          <div class="rule-title">عدد — 'အဒဒ်'</div>
+          <div class="rule-content">
+            ကိန်းဂဏန်း (၁, ၂, ၃...)<br>
+            <div class="arabic-big" style="font-size:28px;">عَدَد</div>
+          </div>
+        </div>
+        <div class="rule-box">
+          <div class="rule-title">معدود — 'မာ့အဒူဒ်'</div>
+          <div class="rule-content">
+            ရေတွက်ခံပစ္စည်း (ကုလားထိုင်, ကိတ်မုန့်, ကျောင်းသား...)<br>
+            <div class="arabic-big" style="font-size:28px;">مَعْدُود</div>
+          </div>
+        </div>
+      </div>
+
+      <h3>ဥပမာ: "သုံးလုံးသောကုလားထိုင်"</h3>
+      <div class="example-block">
+        <div class="example-ar">
+          <span class="clr-num">ثَلَاثَةُ</span> <span class="clr-noun">كَرَاسِيَّ</span>
+        </div>
+        <div class="legend">
+          <div class="legend-item"><div class="legend-dot" style="background:var(--arabic-red)"></div> عدد (ကိန်းဂဏန်း)</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--arabic-blue)"></div> معدود (ရေတွက်ခံပစ္စည်း)</div>
+        </div>
+        <div class="example-my">🇲🇲 သုံးလုံးသောကုလားထိုင်များ</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🗺️</span> ကိန်းဂဏန်းနည်းဥပဒေ — ခြုံမြင်ကွင်း</div>
+      <table class="num-table">
+        <tr>
+          <th>ကိန်းအပိုင်း</th>
+          <th>ကျားမ</th>
+          <th>معدود ပုံစံ</th>
+          <th>အမှတ်အသား</th>
+        </tr>
+        <tr>
+          <td>١ — ၁</td>
+          <td>ကိုက်ညီသည်</td>
+          <td>မဖrators</td>
+          <td class="ar ar-green">مُفْرَد</td>
+        </tr>
+        <tr>
+          <td>٢ — ၂</td>
+          <td>ကိုက်ညီသည်</td>
+          <td>ဒွိကိန်း</td>
+          <td class="ar ar-green">مُثَنَّى</td>
+        </tr>
+        <tr>
+          <td>٣–١٠</td>
+          <td><strong>ကိုလှည့်သည်</strong></td>
+          <td>အများကိန်း</td>
+          <td class="ar ar-orange">جَمْع</td>
+        </tr>
+        <tr>
+          <td>١١–١٢</td>
+          <td>ကိုက်ညီသည်</td>
+          <td>မဖrators</td>
+          <td class="ar ar-green">مُفْرَد</td>
+        </tr>
+        <tr>
+          <td>١٣–١٩</td>
+          <td><strong>ကိုလှည့်သည်</strong></td>
+          <td>မဖrators</td>
+          <td class="ar ar-orange">مُفْرَد</td>
+        </tr>
+        <tr>
+          <td>٢٠, ٣٠...</td>
+          <td>မပြောင်း</td>
+          <td>မဖrators</td>
+          <td class="ar ar-green">مُفْرَد</td>
+        </tr>
+        <tr>
+          <td>١٠٠, ١٠٠٠...</td>
+          <td>မပြောင်း</td>
+          <td>မဖrators</td>
+          <td class="ar ar-green">مُفْرَد</td>
+        </tr>
+      </table>
+      <div class="tip-box" style="margin-top:14px;">အရေးကြီးဆုံးသောဥပဒေမှာ <strong>၃–၁၀</strong> ၏ "ကျားမကိုလှည့်ခြင်း" ဖြစ်သည်။ ဤသဘောတရားကို သဘောပေါက်သောအခါ ကျန်ကိန်းများ ယုတ္တိကျလာပါသည်။</div>
+    </div>
+
+  </div>
+
+  <!-- SECTION: RULES 1-2 -->
+  <div class="section" id="rules1">
+
+    <div class="card">
+      <div class="card-title"><span class="icon">1️⃣</span> ကိန်း ١ (တစ်) — واحد</div>
+
+      <div class="rule-box">
+        <div class="rule-title">📌 နည်းဥပဒေ</div>
+        <div class="rule-content">
+          • ကိန်း "တစ်" သည် <strong>မရှိဘဲ</strong> ရေတွက်ၜ​ပေးနိုင်ပါသည် (မြန်မာဘာသာတွင် "တစ်လုံး" မထည့်ဘဲ "ကုလားထိုင်" ဟုပြောသလိုပင်)<br>
+          • ရေတွက်ချင်ပါက "တစ်" သည် <strong>معدود ၏ ကျားမနှင့် ကိုက်ညီ</strong>ရပါသည်
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <h3>ကျား (مذكر)</h3>
+          <div class="example-block">
+            <div class="example-ar">كِتَابٌ وَاحِدٌ</div>
+            <div class="example-my">🇲🇲 စာအုပ်တစ်အုပ်<br><small style="color:var(--text-soft)">كِتَاب = ကျား</small></div>
+          </div>
+        </div>
+        <div>
+          <h3>မ (مؤنث)</h3>
+          <div class="example-block">
+            <div class="example-ar">مَدْرَسَةٌ وَاحِدَةٌ</div>
+            <div class="example-my">🇲🇲 ကျောင်းတစ်ကျောင်း<br><small style="color:var(--text-soft)">مَدْرَسَة = မ (ة ပါ)</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-box">تاء مربوطة (ة) ပါသောစကားလုံးများသည် မ (مؤنث) ဖြစ်ရလေ့ရှိသည်။ واحد (ကျား) → واحدة (မ)</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">2️⃣</span> ကိန်း ٢ (နှစ်) — اثنان / اثنتان</div>
+
+      <div class="rule-box">
+        <div class="rule-title">📌 နည်းဥပဒေ</div>
+        <div class="rule-content">
+          • ကိန်း "နှစ်" သည် <strong>ဒွိကိန်း (مثنى)</strong> ကိုအသုံးပြုသည်<br>
+          • "نِ-" သို့မဟုတ် "يِ-" ပြင်ဆင်ချက် (suffix) ဖြင့် ဖော်ပြသည်<br>
+          • ကိန်းနံပါတ်ထည့်ရန် မလိုဘဲ ဒွိကိန်းပုံစံသာ သုံးနိုင်သည်
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <h3>ကျား</h3>
+          <div class="example-block">
+            <div class="example-ar">كِتَابَانِ / كِتَابَيْنِ</div>
+            <div class="example-my">🇲🇲 စာအုပ်နှစ်အုပ်</div>
+          </div>
+        </div>
+        <div>
+          <h3>မ</h3>
+          <div class="example-block">
+            <div class="example-ar">مَدْرَسَتَانِ / مَدْرَسَتَيْنِ</div>
+            <div class="example-my">🇲🇲 ကျောင်းနှစ်ကျောင်း</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="warning-box">-انِ ကို nominative တွင်၊ -يْنِ ကို genitive/accusative တွင် သုံးသည်</div>
+    </div>
+
+  </div>
+
+  <!-- SECTION: RULES 3-10 -->
+  <div class="section" id="rules2">
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🔑</span> ၃–၁၀ ၏ မာဂျစ် — ကျားမကိုလှည့်ခြင်း</div>
+
+      <div class="rule-box" style="border-color: var(--arabic-red); background: rgba(231,76,60,0.08);">
+        <div class="rule-title" style="color:var(--arabic-red);">⚡ အရေးကြီးဆုံးသောနည်းဥပဒေ</div>
+        <div class="rule-content">
+          ကိန်း <strong>၃ မှ ၁၀</strong> အထိ — ကိန်းဂဏန်းသည် معدود ၏ ကျားမနှင့် <strong>ဆန့်ကျင်ဘက်ကျားမ</strong> ဖြစ်ရပါသည်!<br><br>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px;">
+            <div style="background:rgba(0,0,0,0.2); padding:10px; border-radius:8px; text-align:center;">
+              <div style="color:var(--text-soft); font-size:12px;">معدود ကျားဖြစ်က</div>
+              <div class="arabic-big" style="font-size:24px; margin:6px 0;">ثَلَاثَةٌ</div>
+              <div style="font-size:12px; color:var(--arabic-red);">عدد မ-ပုံစံ (-ة ပါ)</div>
+            </div>
+            <div style="background:rgba(0,0,0,0.2); padding:10px; border-radius:8px; text-align:center;">
+              <div style="color:var(--text-soft); font-size:12px;">معدود မဖြစ်က</div>
+              <div class="arabic-big" style="font-size:24px; margin:6px 0;">ثَلَاثٌ</div>
+              <div style="font-size:12px; color:var(--arabic-blue);">عدد ကျား-ပုံစံ (-ة မပါ)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-box">မှတ်နည်း: "ة ပါသည်" ဆိုသည်မှာ ကိန်းဂဏန်းကျားပုံစံ (ة) သည် <strong>ကျားပစ္စည်း</strong>ကို ရေတွက်သည်ဟု ထင်မြင်မိနိုင်သော်လည်း တကယ်တမ်းတွင် <strong>မပုံစံ</strong>ဖြစ်သည် — ၎င်းသည် ကျားပစ္စည်းကို ရေတွက်သည်!</div>
+
+      <hr class="divider">
+
+      <h3>ကိန်း ၃–၁၀ ဇယား</h3>
+      <table class="num-table">
+        <tr>
+          <th>ကိန်း</th>
+          <th>အင်္ဂါရပ်</th>
+          <th>ကျားပစ္စည်းရေတွက်ရာ<br><small>(عدد မ-ပုံစံ)</small></th>
+          <th>မပစ္စည်းရေတွက်ရာ<br><small>(عدد ကျား-ပုံစံ)</small></th>
+        </tr>
+        <tr>
+          <td>3 ثلاثة</td>
+          <td></td>
+          <td class="ar ar-red">ثَلَاثَةُ كُتُبٍ</td>
+          <td class="ar ar-green">ثَلَاثُ مُدُنٍ</td>
+        </tr>
+        <tr>
+          <td>4 أربعة</td>
+          <td></td>
+          <td class="ar ar-red">أَرْبَعَةُ رِجَالٍ</td>
+          <td class="ar ar-green">أَرْبَعُ نِسَاءٍ</td>
+        </tr>
+        <tr>
+          <td>5 خمسة</td>
+          <td></td>
+          <td class="ar ar-red">خَمْسَةُ أَيَّامٍ</td>
+          <td class="ar ar-green">خَمْسُ لَيَالٍ</td>
+        </tr>
+        <tr>
+          <td>6 ستة</td>
+          <td></td>
+          <td class="ar ar-red">سِتَّةُ أَشْهُرٍ</td>
+          <td class="ar ar-green">سِتُّ سَنَوَاتٍ</td>
+        </tr>
+        <tr>
+          <td>7 سبعة</td>
+          <td></td>
+          <td class="ar ar-red">سَبْعَةُ أَبْوَابٍ</td>
+          <td class="ar ar-green">سَبْعُ سَمَوَاتٍ</td>
+        </tr>
+        <tr>
+          <td>8 ثمانية</td>
+          <td></td>
+          <td class="ar ar-red">ثَمَانِيَةُ أَشْخَاصٍ</td>
+          <td class="ar ar-green">ثَمَانِي بَنَاتٍ</td>
+        </tr>
+        <tr>
+          <td>9 تسعة</td>
+          <td></td>
+          <td class="ar ar-red">تِسْعَةُ أَوْلَادٍ</td>
+          <td class="ar ar-green">تِسْعُ بَنَاتٍ</td>
+        </tr>
+        <tr>
+          <td>10 عشرة</td>
+          <td></td>
+          <td class="ar ar-red">عَشَرَةُ طُلَّابٍ</td>
+          <td class="ar ar-green">عَشْرُ طَالِبَاتٍ</td>
+        </tr>
+      </table>
+
+      <div class="rule-box" style="margin-top:16px;">
+        <div class="rule-title">معدود ပုံစံ: အများကိန်း (جمع)</div>
+        <div class="rule-content">ကိန်း ၃–၁၀ နှင့် သုံးသောအခါ معدود သည် <strong>အများကိန်း (جمع)</strong> ဖြစ်ရပါသည်။ <br>မဟုတ်ဘဲ မဖrators (မူလပုံ) သုံးလျှင် မမှန်ပါ!</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- SECTION: RULES 11+ -->
+  <div class="section" id="rules3">
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🔟</span> ကိန်း ١١–١٢ (တစ်ဆယ့်တစ်, တစ်ဆယ့်နှစ်)</div>
+
+      <div class="rule-box">
+        <div class="rule-title">📌 နည်းဥပဒေ</div>
+        <div class="rule-content">
+          • ကိန်းနှစ်ပိုင်းစလုံး (ones + tens) သည် <strong>معدود ၏ ကျားမနှင့် ကိုက်ညီ</strong>ရပါသည်<br>
+          • معدود သည် <strong>مفرد (မူလပုံ)</strong> ဖြစ်ရပါသည် — منصوب (ا- accusative) ဖြင့်
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <h3>أَحَدَ عَشَرَ (၁၁) — ကျား</h3>
+          <div class="example-block">
+            <div class="example-ar">أَحَدَ عَشَرَ كِتَابًا</div>
+            <div class="example-my">🇲🇲 စာအုပ် ၁၁ အုပ်<br><small style="color:var(--text-soft)">كِتَاب ကျား → أَحَدَ عَشَرَ</small></div>
+          </div>
+        </div>
+        <div>
+          <h3>إِحْدَى عَشْرَةَ (၁၁) — မ</h3>
+          <div class="example-block">
+            <div class="example-ar">إِحْدَى عَشْرَةَ سَاعَةً</div>
+            <div class="example-my">🇲🇲 နာရီ ၁၁ နာရီ<br><small style="color:var(--text-soft)">سَاعَة မ → إِحْدَى عَشْرَةَ</small></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🔢</span> ကိန်း ١٣–١٩ (တစ်ဆယ့်သုံး–တစ်ဆယ့်ကိုး)</div>
+
+      <div class="rule-box" style="border-color: var(--arabic-orange); background: rgba(243,156,18,0.08);">
+        <div class="rule-title" style="color:var(--arabic-orange);">📌 နည်းဥပဒေ</div>
+        <div class="rule-content">
+          • Ones (တဆင့်) — ကျားမ<strong>ကိုလှည့်</strong>သည် (ကိန်း ၃–၁၀ ကဲ့သို့)</br>
+          • Tens (ဆယ်ဂဏန်း عشر/عشرة) — <strong>ကိုက်ညီ</strong>သည်<br>
+          • معدود သည် <strong>مفرد</strong> (منصوب) ဖြစ်ရပါသည်
+        </div>
+      </div>
+
+      <table class="num-table">
+        <tr><th>ကိန်း</th><th>ကျား</th><th>မ</th></tr>
+        <tr>
+          <td>13</td>
+          <td class="ar ar-red">ثَلَاثَةَ عَشَرَ</td>
+          <td class="ar ar-green">ثَلَاثَ عَشْرَةَ</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td class="ar ar-red">أَرْبَعَةَ عَشَرَ</td>
+          <td class="ar ar-green">أَرْبَعَ عَشْرَةَ</td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td class="ar ar-red">سَبْعَةَ عَشَرَ</td>
+          <td class="ar ar-green">سَبْعَ عَشْرَةَ</td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td class="ar ar-red">تِسْعَةَ عَشَرَ</td>
+          <td class="ar ar-green">تِسْعَ عَشْرَةَ</td>
+        </tr>
+      </table>
+
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">💯</span> ကိန်း ٢٠ နှင့်အထက်</div>
+
+      <div class="rule-box">
+        <div class="rule-title">📌 ကိန်း ၂၀, ၃၀, ... ၉၀ (Tens)</div>
+        <div class="rule-content">
+          • ကျားမ<strong>မပြောင်း</strong>ပါ — کیle Ones မပါပဲ Tens ကိုယ်တိုင်က neutral<br>
+          • معدود သည် <strong>مفرد (منصوب)</strong> ဖြစ်ရပါသည်
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="example-ar">عِشْرُونَ طَالِبًا / عِشْرُونَ طَالِبَةً</div>
+        <div class="example-my">🇲🇲 ကျောင်းသား/ကျောင်းသူ ၂၀ ဦး</div>
+      </div>
+
+      <div class="rule-box">
+        <div class="rule-title">📌 ကျပန်းကိန်းများ (21, 35, 47...)</div>
+        <div class="rule-content">
+          Ones ပိုင်းနည်းဥပဒေ: <strong>ကိုက်ညီ</strong>သည် (ကိန်း ၁–၂ ကဲ့သို့)<br>
+          Tens ပိုင်း: ပြောင်းလဲမှုမရှိ
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="example-ar">خَمْسَةٌ وَعِشْرُونَ طَالِبًا</div>
+        <div class="example-my">🇲🇲 ကျောင်းသား ၂၅ ဦး (خَمْسَة ကျား = طَالِب ကျား ✓)</div>
+      </div>
+
+      <div class="rule-box">
+        <div class="rule-title">📌 ကိန်း ١٠٠ (မِائَة) နှင့် ١٠٠٠ (أَلْف)</div>
+        <div class="rule-content">
+          • ကျားမ<strong>မပြောင်း</strong><br>
+          • معدود သည် <strong>مفرد (مجرور)</strong> ဖြစ်ရပါသည်
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="example-block">
+          <div class="example-ar">مِائَةُ كِتَابٍ</div>
+          <div class="example-my">🇲🇲 စာအုပ် ၁၀၀</div>
+        </div>
+        <div class="example-block">
+          <div class="example-ar">أَلْفُ رَجُلٍ</div>
+          <div class="example-my">🇲🇲 ယောကျားသား ၁၀၀၀</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- SECTION: EXAMPLES -->
+  <div class="section" id="examples">
+
+    <div class="card">
+      <div class="card-title"><span class="icon">✍️</span> ဘဝနေ့စဉ်တွင် သုံးနိုင်သော ဥပမာများ</div>
+
+      <div class="legend" style="margin-bottom:16px;">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--arabic-red)"></div> عدد (ကိန်း)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--arabic-blue)"></div> معدود (ပစ္စည်း)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--arabic-green)"></div> မြန်မာအဓိပ္ပာယ်</div>
+      </div>
+
+      <h3>🕌 ကျမ်းကောင်းဒေသနာ အသုံးများ</h3>
+      <div class="example-block">
+        <div class="example-ar">
+          <span class="clr-num">سَبْعَةُ</span> <span class="clr-noun">سَمَوَاتٍ</span>
+        </div>
+        <div class="example-my">🇲🇲 ကောင်းကင် ၇ ထပ် <br><small style="color:var(--text-soft)">سَمَاء = ကောင်းကင် (ကျား) → سَمَوَات (أجمع) — ကိန်း ၇ မ-ပုံစံ ✓</small></div>
+      </div>
+
+      <div class="example-block">
+        <div class="example-ar">
+          <span class="clr-num">خَمْسُ</span> <span class="clr-noun">صَلَوَاتٍ</span>
+        </div>
+        <div class="example-my">🇲🇲 ဆုတောင်း ၅ ကြိမ် <br><small style="color:var(--text-soft)">صَلَاة = ဆုတောင်း (မ) → صَلَوَات (جمع) — ကိန်း ၅ ကျား-ပုံစံ ✓</small></div>
+      </div>
+
+      <hr class="divider">
+
+      <h3>🏫 ကျောင်းနှင့် ပညာရေးဆိုင်ရာ</h3>
+
+      <div class="example-block">
+        <div class="example-ar">
+          فِي الفَصْلِ <span class="clr-num">ثَلَاثَةٌ وَعِشْرُونَ</span> <span class="clr-noun">طَالِبًا</span>
+        </div>
+        <div class="example-my">🇲🇲 အတန်းထဲတွင် ကျောင်းသား ၂၃ ဦးရှိသည် <br><small style="color:var(--text-soft)">طَالِب ကျား + ٢٣ → ثَلَاثَة (ones ကျား, ကိုက်ညီ)</small></div>
+      </div>
+
+      <div class="example-block">
+        <div class="example-ar">
+          قَرَأْتُ <span class="clr-num">عَشَرَةَ</span> <span class="clr-noun">كُتُبٍ</span>
+        </div>
+        <div class="example-my">🇲🇲 ကျွန်ုပ်သည် စာအုပ် ၁၀ အုပ် ဖတ်ခဲ့သည် <br><small style="color:var(--text-soft)">كِتَاب ကျား → كُتُب (جمع) — عشرة မ-ပုံစံ ✓</small></div>
+      </div>
+
+      <hr class="divider">
+
+      <h3>🛒 ဈေးဝယ်ခြင်း</h3>
+
+      <div class="example-block">
+        <div class="example-ar">
+          أُرِيدُ <span class="clr-num">أَرْبَعَةَ</span> <span class="clr-noun">تُفَّاحَاتٍ</span>
+        </div>
+        <div class="example-my">🇲🇲 ကျွန်ုပ် သရက်သီး ၄ လုံး လိုချင်သည် <br><small style="color:var(--text-soft)">تُفَّاحَة မ → تُفَّاحَات (جمع) — أربعة မ-ပုံစံ ✓</small></div>
+      </div>
+
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🗂️</span> အမြန်ကြည့်ဇယား — နည်းဥပဒေများ</div>
+      <table class="num-table">
+        <tr>
+          <th>ကိန်း</th>
+          <th>عدد ကျားမ</th>
+          <th>معدود ပုံစံ</th>
+          <th>ကိန်းအနေ</th>
+        </tr>
+        <tr><td>١</td><td>ကိုက်ညီ</td><td>مفرد</td><td>معدود နောက်မှာ</td></tr>
+        <tr><td>٢</td><td>ကိုက်ညီ</td><td>مثنى</td><td>ကိန်းဂဏန်းမလို</td></tr>
+        <tr><td>٣–١٠</td><td class="ar-red" style="color:var(--arabic-red); font-weight:700;">ကိုလှည့်</td><td>جمع</td><td>عدد ရှေ့မှာ</td></tr>
+        <tr><td>١١–١٢</td><td>ကိုက်ညီ</td><td>مفرد منصوب</td><td>عدد ရှေ့မှာ</td></tr>
+        <tr><td>١٣–١٩</td><td class="ar-red" style="color:var(--arabic-red); font-weight:700;">Ones ကိုလှည့်</td><td>مفرد منصوب</td><td>عدد ရှေ့မှာ</td></tr>
+        <tr><td>٢٠–٩٠</td><td>မပြောင်း</td><td>مفرد منصوب</td><td>عدد ရှေ့မှာ</td></tr>
+        <tr><td>١٠٠+</td><td>မပြောင်း</td><td>مفرد مجرور</td><td>عدد ရှေ့မှာ</td></tr>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- SECTION: QUIZ -->
+  <div class="section" id="quiz">
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🧪</span> သင်ယူမှုစစ်ဆေးချိန် (Quick Quiz)</div>
+      <p style="color:var(--text-soft); font-size:13px;">မှန်သောဖြေဆိုချက်ကို ရွေးချယ်ပါ</p>
+
+      <div id="quiz-progress" style="margin-top:16px;">
+        <div class="progress-label">
+          <span>တိုးတက်မှု</span>
+          <span id="prog-text">0 / 5</span>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="prog-bar" style="width:0%"></div>
+        </div>
+      </div>
+
+      <div id="q1" class="quiz-q">
+        <div class="q-text"><span class="step-num">၁</span> "ကျောင်းသူ ၅ ဦး" ကို အာရဗီဘာသာဖြင့် မည်သို့ပြောမည်နည်း? (طَالِبَة = ကျောင်းသူ — မ)</div>
+        <div class="ar-q">خَمْسُ / خَمْسَةُ طَالِبَاتٍ ؟</div>
+        <div class="options">
+          <button class="opt-btn" onclick="checkQ('q1', this, true)">خَمْسُ طَالِبَاتٍ<br><small>ကိန်း ကျား-ပုံစံ</small></button>
+          <button class="opt-btn" onclick="checkQ('q1', this, false)">خَمْسَةُ طَالِبَاتٍ<br><small>ကိန်း မ-ပုံစံ</small></button>
+        </div>
+        <div class="feedback" id="fb-q1"></div>
+      </div>
+
+      <div id="q2" class="quiz-q">
+        <div class="q-text"><span class="step-num">၂</span> "ကျမ်းစာ ၇ ချောင်း" — မည်သည့်ပုံစံမှန်သနည်း? (قَلَم = ကျမ်းစာ — ကျား)</div>
+        <div class="ar-q">سَبْعَةُ أَقْلَامٍ ؟</div>
+        <div class="options">
+          <button class="opt-btn" onclick="checkQ('q2', this, true)">سَبْعَةُ أَقْلَامٍ<br><small>ကိန်း မ-ပုံစံ + جمع</small></button>
+          <button class="opt-btn" onclick="checkQ('q2', this, false)">سَبْعُ أَقْلَامٍ<br><small>ကိန်း ကျား-ပုံစံ + جمع</small></button>
+        </div>
+        <div class="feedback" id="fb-q2"></div>
+      </div>
+
+      <div id="q3" class="quiz-q">
+        <div class="q-text"><span class="step-num">၃</span> ကိန်း ၃–၁၀ တွင် معدود သည် မည်သည့်ပုံစံဖြစ်ရမည်နည်း?</div>
+        <div class="options">
+          <button class="opt-btn" onclick="checkQ('q3', this, false)">مُفْرَد (မူလပုံ)<br><small>၁–၂ ကဲ့သို့</small></button>
+          <button class="opt-btn" onclick="checkQ('q3', this, true)">جَمْع (အများကိန်း)<br><small>ကိန်း ၃–၁၀ အတွက်</small></button>
+          <button class="opt-btn" onclick="checkQ('q3', this, false)">مُثَنَّى (ဒွိကိန်း)<br><small>ကိန်း ၂ အတွက်</small></button>
+          <button class="opt-btn" onclick="checkQ('q3', this, false)">မည်သည့်ပုံစံမဆို</button>
+        </div>
+        <div class="feedback" id="fb-q3"></div>
+      </div>
+
+      <div id="q4" class="quiz-q">
+        <div class="q-text"><span class="step-num">၄</span> "နာရီ ١٣ (၁၃)" ကို မည်သို့ပြောမည်နည်း? (سَاعَة = မ)</div>
+        <div class="options">
+          <button class="opt-btn" onclick="checkQ('q4', this, false)">ثَلَاثَةَ عَشَرَ سَاعَةً<br><small>Ones မ-ပုံစံ</small></button>
+          <button class="opt-btn" onclick="checkQ('q4', this, true)">ثَلَاثَ عَشْرَةَ سَاعَةً<br><small>Ones ကျား-ပုံစံ (ကိုလှည့်)</small></button>
+        </div>
+        <div class="feedback" id="fb-q4"></div>
+      </div>
+
+      <div id="q5" class="quiz-q">
+        <div class="q-text"><span class="step-num">၅</span> ကိန်း ١٠٠ (မِائَة) နှင့် ١٠٠٠ (أَلْف) တွင် معدود သည် မည်သည့်ပုံစံဖြစ်ရမည်နည်း?</div>
+        <div class="options">
+          <button class="opt-btn" onclick="checkQ('q5', this, false)">جمع (منصوب)</button>
+          <button class="opt-btn" onclick="checkQ('q5', this, true)">مفرد (مجرور)<br><small>Genitive case</small></button>
+          <button class="opt-btn" onclick="checkQ('q5', this, false)">مفرد (منصوب)<br><small>Accusative</small></button>
+          <button class="opt-btn" onclick="checkQ('q5', this, false)">مثنى</button>
+        </div>
+        <div class="feedback" id="fb-q5"></div>
+      </div>
+
+      <div id="score-wrap" class="score-display" style="display:none;">
+        <div class="score-num" id="final-score"></div>
+        <div style="color:var(--text-soft); font-size:14px; margin-top:8px;">မှတ်ရမည်/ ၅ မှတ်</div>
+        <div id="score-msg" style="margin-top:12px; color:var(--text); font-size:15px;"></div>
+        <button onclick="resetQuiz()" style="margin-top:16px; background:linear-gradient(135deg,var(--gold),var(--gold-light)); color:var(--deep); border:none; padding:12px 28px; border-radius:25px; cursor:pointer; font-family:'Noto Serif Myanmar',serif; font-size:14px; font-weight:700;">🔄 ထပ်ကြိုးစားမည်</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <div style="font-family:'Scheherazade New',serif; font-size:28px; color:var(--gold); margin-bottom:8px;">الأعداد العربية</div>
+  မြန်မာဘာသာဖြင့် အာရဗီဘာသာရပ် သင်ခန်းစာ<br>
+  Hans Wehr Arabic-English Dictionary • Wright's Arabic Grammar • Ryding (2005) ကို မှီငြမ်းသည်
+</footer>
+
+<script>
+  let answered = {};
+  let score = 0;
+  const total = 5;
+
+  function showTab(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  const feedbacks = {
+    q1: {
+      ok: "✅ မှန်ပါသည်! طَالِبَة သည် မ ဖြစ်သောကြောင့် خَمْسُ (ကျားပုံစံ) ကိုသုံးသည် — ကျားမကိုလှည့်ခြင်းနည်းဥပဒေ ✓",
+      no: "❌ မမှန်ပါ။ طَالِبَة မ ဖြစ်သောကြောင့် خَمْسُ (ကျားပုံစံ) ကိုသုံးရသည် — ကျားမကိုလှည့်ခြင်းကို မမေ့ပါနှင့်!"
+    },
+    q2: {
+      ok: "✅ မှန်ပါသည်! قَلَم ကျားဖြစ်သောကြောင့် سَبْعَة (မ-ပုံစံ - ة ပါ) ကိုသုံးသည် ✓",
+      no: "❌ မမှန်ပါ။ قَلَم ကျားဖြစ်သောကြောင့် سَبْعَة (မ-ပုံစံ) ကိုသုံးရသည်!"
+    },
+    q3: {
+      ok: "✅ မှန်ပါသည်! ကိန်း ၃–၁၀ တွင် معدود သည် جمع (အများကိန်း) ဖြစ်ရပါသည် ✓",
+      no: "❌ မမှန်ပါ။ ကိန်း ၃–၁၀ တွင် معدود သည် جمع (အများကိန်း) ဖြစ်ရပါသည်!"
+    },
+    q4: {
+      ok: "✅ မှန်ပါသည်! ١٣–١٩ တွင် Ones ပိုင်းသည် ကျားမ ကိုလှည့်သည် — سَاعَة မ ဖြစ်သောကြောင့် ثَلَاثَ (ကျားပုံ) ✓",
+      no: "❌ မမှန်ပါ။ ١٣–١٩ တွင် Ones ပိုင်း ကိုလှည့်ရသည် — سَاعَة မ → ثَلَاثَ (ကျားပုံ) ✓"
+    },
+    q5: {
+      ok: "✅ မှန်ပါသည်! مِائَة / أَلْف နှင့် معدود သည် مفرد مجرور ဖြစ်ရပါသည် ✓",
+      no: "❌ မမှန်ပါ။ ١٠٠+ ကိန်းများနှင့် معدود သည် مفرد مجرور ဖြစ်ရပါသည်!"
+    }
+  };
+
+  function checkQ(qid, btn, isCorrect) {
+    if (answered[qid]) return;
+    answered[qid] = true;
+
+    const container = document.getElementById(qid);
+    const allBtns = container.querySelectorAll('.opt-btn');
+    allBtns.forEach(b => b.style.pointerEvents = 'none');
+
+    const fb = document.getElementById('fb-' + qid);
+
+    if (isCorrect) {
+      btn.classList.add('correct');
+      score++;
+      fb.textContent = feedbacks[qid].ok;
+      fb.className = 'feedback show ok';
+    } else {
+      btn.classList.add('wrong');
+      fb.textContent = feedbacks[qid].no;
+      fb.className = 'feedback show no';
+    }
+
+    updateProgress();
+
+    if (Object.keys(answered).length === total) {
+      setTimeout(showScore, 800);
+    }
+  }
+
+  function updateProgress() {
+    const done = Object.keys(answered).length;
+    document.getElementById('prog-text').textContent = done + ' / ' + total;
+    document.getElementById('prog-bar').style.width = (done / total * 100) + '%';
+  }
+
+  function showScore() {
+    const wrap = document.getElementById('score-wrap');
+    wrap.style.display = 'block';
+    document.getElementById('final-score').textContent = score + ' / ' + total;
+    
+    let msg = '';
+    if (score === 5) msg = '🌟 အကောင်းဆုံး! ကိန်းဂဏန်းနည်းဥပဒေများကို ကျဉ်ကျဉ်ချောချောနားလည်ပြီ!';
+    else if (score >= 3) msg = '👍 ကောင်းပါသည်! ထပ်မံလေ့ကျင့်ပါ';
+    else msg = '📚 ရှင်းပြချက်များကို ထပ်မံဖတ်ရှုပြီး ထပ်ကြိုးစားပါ';
+    
+    document.getElementById('score-msg').textContent = msg;
+  }
+
+  function resetQuiz() {
+    answered = {};
+    score = 0;
+    
+    for (let i = 1; i <= 5; i++) {
+      const q = document.getElementById('q' + i);
+      q.querySelectorAll('.opt-btn').forEach(b => {
+        b.classList.remove('correct', 'wrong');
+        b.style.pointerEvents = '';
+      });
+      const fb = document.getElementById('fb-q' + i);
+      fb.className = 'feedback';
+      fb.textContent = '';
+    }
+    
+    document.getElementById('score-wrap').style.display = 'none';
+    updateProgress();
+  }
+</script>
+</body>
+</html>
